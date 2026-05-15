@@ -1582,13 +1582,44 @@ function renderPage(page) {
   }
 }
 
-function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('open');
-  document.getElementById('sidebarOverlay').classList.toggle('open');
+function toggleSidebar(){
+
+  const sidebar =
+    document.getElementById('sidebar');
+
+  const overlay =
+    document.getElementById('sidebarOverlay');
+
+  const isOpen =
+    sidebar.classList.contains('open');
+
+  if(isOpen){
+
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
+
+    document.body.style.overflow='auto';
+
+  }else{
+
+    sidebar.classList.add('open');
+    overlay.classList.add('open');
+
+    document.body.style.overflow='hidden';
+  }
 }
-function closeSidebar() {
-  document.getElementById('sidebar').classList.remove('open');
-  document.getElementById('sidebarOverlay').classList.remove('open');
+}
+function closeSidebar(){
+
+  document
+    .getElementById('sidebar')
+    .classList.remove('open');
+
+  document
+    .getElementById('sidebarOverlay')
+    .classList.remove('open');
+
+  document.body.style.overflow='auto';
 }
 
 // ============================================================
